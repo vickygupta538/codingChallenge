@@ -1,0 +1,54 @@
+<!doctype html>
+<html ng-app="app" lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<base href="/">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<title>Patients Provider</title>
+
+	<!-- CSS -->
+	
+	<link rel="stylesheet" href="libs/angular-ui-grid/ui-grid.css">
+	<link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="libs/angular-ui-select/dist/select.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<!-- custom styles -->
+	<link rel="stylesheet" href="css/style.css">
+
+
+
+	<!-- JS -->
+
+	<script src="libs/angular/angular.js"></script>
+	<script src="libs/jquery/dist/jquery.js"></script>
+	<script src="libs/angular-ui-grid/ui-grid.js"></script>
+	<script src="libs/angular-route/angular-route.min.js"></script>
+	<script src="libs/ngstorage/ngStorage.min.js"></script>
+	<script src="libs/ngInfiniteScroll/build/ng-infinite-scroll.js"></script>
+	<script src="libs/angular-ui-select/dist/select.js"></script>
+
+
+
+	<!-- ANGULAR CUSTOM -->
+	<script src="js/app.js"></script>
+	<script src="js/controllers/AuthenticationCtrl.js"></script>
+	<script src="js/services/AuthenticationService.js"></script>
+	<script src="js/controllers/PatientProviderCtrl.js"></script>
+	<script src="js/services/PatientProviderService.js"></script>
+	<script src="js/appRoutes.js"></script>
+
+
+	
+</head>
+
+<body>
+	<div class="container" >
+		<!-- ANGULAR DYNAMIC CONTENT -->
+		<div ng-view></div>
+
+	</div>
+	
+</body>
+
+</html>

@@ -1,0 +1,69 @@
+<div class="row">
+	<div class="col-xs-10">
+
+	</div>
+	<div class="col-xs-2">
+		<div style="float:right;">
+			<span ng-if="vm.loggedinUser" style="display:inline;font-weight:bold">Hi {{vm.loggedinUser}},</span>
+			<span style="display:inline;"><a ng-click="vm.logout()">LogOut!</a></span>
+		</div>
+	</div>
+</div>
+<br />
+<div class="form-group">
+	<div class="row row-space">
+		<label class="col-xs-3 control-label">Minimum Discharges</label>
+		<div class="col-xs-2"><input type="number" ng-model="vm.filter.minDischarges" class="form-control" /></div>
+		<label class="col-xs-offset-1 col-xs-3 control-label">Maximum Discharges</label>
+		<div class="col-xs-2 "><input type="number" ng-model="vm.filter.maxDischarges" class="form-control" /></div>	
+	</div>
+	<div style="clear:both"></div>
+	<div class="row row-space">
+		<label class="col-xs-3 control-label">Min Average Covered Charges</label>
+		<div class="col-xs-2"><input type="number" ng-model="vm.filter.minAvgCoveredCharges" class="form-control" />
+		</div>
+		<label class=" col-xs-offset-1 col-xs-3 control-label">Max Average Covered Charges</label>
+		<div class="col-xs-2"><input type="number" ng-model="vm.filter.maxAvgCoveredCharges" class="form-control" />
+		</div>
+
+	</div>
+	<div style="clear:both"></div>
+	<div class="row row-space">
+		<label class=" col-xs-3 control-label">Min Average Medicare Payments</label>
+		<div class="col-xs-2"><input type="number" ng-model="vm.filter.minAvgMedicarePayments" class="form-control" /></div>
+		<label class="col-xs-offset-1 col-xs-3 control-label">Max Average Medicare Payments</label>
+		<div class="col-xs-2"><input type="number" ng-model="vm.filter.maxAvgMedicarePayments" class="form-control" /></div>		
+	</div>
+	<div style="clear:both"></div>
+	<div class="row row-space">
+		<label class="col-xs-3 control-label">State</label>
+		<div class="col-xs-2"><input type="text"  ng-model="vm.filter.state" class="form-control" /></div>
+		<div class="col-xs-offset-1 col-xs-3"> <button ng-disabled="vm.isFetchingData" ng-click="vm.fetchData(false,true)" 
+		style="width: 100%" class="btn btn-primary pull-right">Search<i ng-if="vm.loading" class="fa fa-circle-o-notch fa-spin" style="font-size:20px"></i></button>
+			
+		</div>
+	</div>
+</div>
+<div ng-if="vm.showError" style="text-align:center" class="alert alert-danger ">Invalid Values in Search Criteria</div>
+<div style="clear:both"></div>
+<div class="row row-space">
+	<label class="col-xs-3">Select Datapoints</label>
+	<div class="col-xs-8">
+		<ui-select multiple ng-model="vm.selectedDataPoints" theme="bootstrap" close-on-select="false" title="Select Datapoints..." ng-change="vm.onDataPointSelect()">
+			<ui-select-match placeholder="Select Datapoints...">{{$item.name}}</ui-select-match>
+			<ui-select-choices repeat="datapoint in vm.dataPoints | filter:$select.search">
+				{{datapoint.name}}
+			</ui-select-choices>
+		</ui-select>
+	</div>
+	<div style="clear:both"></div>
+</div>
+
+<div class="row">
+	<h5 style="font-weight: bold;">Patient Providers Data</h5>
+</div>
+
+<div class="row">
+	<div id="grid1" ui-grid="vm.gridOptions" ui-grid-infinite-scroll ui-grid-resize-columns class="grid" ng-if="vm.gridOptions"></div>
+	<span> &nbsp; &nbsp; Pages: {{ vm.page }} &nbsp; &nbsp;&nbsp; Records Fetched: {{ vm.recordsCount}} &nbsp; &nbsp;&nbsp; Total Records: {{ vm.totalCount}} </span>
+</div>

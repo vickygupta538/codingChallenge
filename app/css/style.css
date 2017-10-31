@@ -1,0 +1,20 @@
+/*!
+ * Start Bootstrap - Agency Bootstrap Theme (http://startbootstrap.com)
+ * Code licensed under the Apache License v2.0.
+ * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+body {
+    font-family: "Roboto Slab", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    
+}
+#contact{position:relative;}
+.form_container{text-align: center;padding: 50px 15px;}
+.margin_top{margin-top:150px;}
+h2{margin: 0;color: #fff;} 
+.homeContainer{margin-top:50px;}
+.login_inner_box .modal-body{background: #ffffff;padding: 35px 20px;}
+.login_inner_box .modal-heading{background: #4297c1;padding: 10px;}
+.submintBtn{font-size: 16px;padding: 5px 12px;background: #4297c1;border-radius: 3px;-webkit-appearance: none !important;border: none;color: #fff;}
+.ui-select-match-item.btn-primary{background-color: #fff !important;border-color: #ccc !important; color:#000 !important;}

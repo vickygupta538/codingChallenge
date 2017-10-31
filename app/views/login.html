@@ -1,0 +1,76 @@
+<div id="contact" class="margin_top">
+<div ng-if="vm.isRegister==false" class="modal-dialog login_inner_box">
+        <div class="modal-content">
+            <div class="modal-heading">
+                <h2 class="text-center">Login</h2>
+            </div>
+                        <div class="modal-body">
+                <form action="" role="form">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-user"></span>
+                            </span>
+                            <input type="text" class="form-control" ng-model="vm.user.username" placeholder="User Name" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-lock"></span>
+                            </span>
+                            <input type="password" ng-model="vm.user.password" class="form-control" placeholder="Password" />
+
+                        </div>
+
+                    </div>
+
+                    <div class="form-group text-center">
+                       <button type="button" ng-click="vm.login()" class=" display_inlinebtn btn-primary btn-lg submintBtn">Login
+                        <i ng-if="vm.loading" class="fa fa-circle-o-notch fa-spin" style="font-size:20px"></i></button>
+                     
+                        <a href="#" ng-click="vm.isRegister=true;vm.error=''" class="btn btn-link">Register</a>
+                    </div>
+                    <div ng-if="vm.error" class="alert alert-danger">{{vm.error}}</div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+    <div ng-if="vm.isRegister==true" class="modal-dialog login_inner_box">
+            <div class="modal-content">
+                <div class="modal-heading">
+                    <h2 class="text-center">Register</h2>
+                </div>
+  
+                <div class="modal-body">
+                    <form action="" role="form">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-user"></span>
+                                </span>
+                                <input type="text" class="form-control" ng-model="vm.user.username" placeholder="User Name" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-lock"></span>
+                                </span>
+                                <input type="password" ng-model="vm.user.password" class="form-control" placeholder="Password" />
+    
+                            </div>
+    
+                        </div>
+    
+                        <div class="form-group text-center">
+                        <button type="button" ng-click="vm.register()" class=" display_inlinebtn btn-primary btn-lg submintBtn">Register<i ng-if="vm.loading" class="fa fa-circle-o-notch fa-spin" style="font-size:20px"></i></button>
+                        <a href="#" ng-click="vm.isRegister=false;vm.error=''" class="btn btn-link">Already a member?Sign In</a>
+                        </div>
+                        <div ng-if="vm.error" class="alert alert-danger">{{vm.error}}</div>
+                    </form>
+                </div>
+            </div>
+        </div>
+</div>
