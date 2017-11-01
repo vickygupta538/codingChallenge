@@ -15,18 +15,18 @@ app.controller('patientProviderCtrl', ['$scope', '$location', 'patientProviderSe
 	};
 	vm.showError=false;
 
-	vm.dataPoints = [{ name: "DRGDefinition", value: "DRG Definition", width: '10%'}, 
-	{ name: "ProviderName", value: "Provider Name", width: '10%'}, 
-	{ name: "ProviderId", value: "Provider ID", width: '8%' }, 
-	{ name: "ProviderStreetAddress", value: "Provider Street Address", width: '8%'},
-	{ name: "ProviderCity", value: "Provider City", width: '8%'}, 
-	{ name: "ProviderState", value: "Provider State", width: '8%'}, 
-	{ name: "ProviderZipCode", value: "Provider Zip Code", width: '8%'}, 
-	{ name: "HospitalReferralRegionDescription", value: "Hospital Referral Region Description", width: '8%'}, 
-	{ name: "TotalDischarges", value: "Total Discharges", width: '8%'},
-	{ name: "AverageCoveredCharges", value: "Average Covered Charges", width: '8%',cellFilter: 'currency' },
-	{ name: "AverageTotalPayments", value: "Average Total Payments", width: '8%',cellFilter: 'currency' }, 
-	{ name: "AverageMedicarePayments", value: "Average Medicare Payments", width: '8%',cellFilter: 'currency' }]
+	vm.dataPoints = [{ name: "DRGDefinition", value: "DRG Definition", width: '10%',headerCellClass: 'headerBlue'}, 
+	{ name: "ProviderName", value: "Provider Name", width: '10%',headerCellClass: 'headerBlue'}, 
+	{ name: "ProviderId", value: "Provider ID", width: '8%',headerCellClass: 'headerBlue' }, 
+	{ name: "ProviderStreetAddress", value: "Provider Street Address", width: '8%',headerCellClass: 'headerBlue'},
+	{ name: "ProviderCity", value: "Provider City", width: '8%',headerCellClass: 'headerBlue'}, 
+	{ name: "ProviderState", value: "Provider State", width: '8%',headerCellClass: 'headerBlue'}, 
+	{ name: "ProviderZipCode", value: "Provider Zip Code", width: '8%',headerCellClass: 'headerBlue'}, 
+	{ name: "HospitalReferralRegionDescription", value: "Hospital Referral Region Description", width: '8%',headerCellClass: 'headerBlue'}, 
+	{ name: "TotalDischarges", value: "Total Discharges", width: '8%',headerCellClass: 'headerBlue'},
+	{ name: "AverageCoveredCharges", value: "Average Covered Charges", width: '8%',cellFilter: 'currency',headerCellClass: 'headerBlue' },
+	{ name: "AverageTotalPayments", value: "Average Total Payments", width: '8%',cellFilter: 'currency',headerCellClass: 'headerBlue' }, 
+	{ name: "AverageMedicarePayments", value: "Average Medicare Payments", width: '8%',cellFilter: 'currency',headerCellClass: 'headerBlue' }]
 
 	vm.selectedDataPoints = [];
 	vm.patientProviderData = [];
@@ -140,10 +140,10 @@ app.controller('patientProviderCtrl', ['$scope', '$location', 'patientProviderSe
 	function prepareGridColumns(colDefs)
 	{
 		$scope.cols = [];
-		var idIndex = colDefs.indexOf('_id');
+		/*var idIndex = colDefs.indexOf('_id');
 		if (idIndex > -1) {
 			colDefs.splice(idIndex, 1);
-		}
+		}*/
 		angular.forEach(vm.dataPoints, function(datapoint, index) {
 		    if (colDefs.indexOf(datapoint.name) > -1) {
 		        adjustWidth(colDefs, datapoint, index);
